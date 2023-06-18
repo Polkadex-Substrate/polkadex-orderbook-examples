@@ -14,7 +14,7 @@ type Args = {
     quoteOrderQuantity?: number
     price: number
     timestamp: number
-    clientOrderId: Uint8Array
+    clientOrderId: Uint8Array | string
 }
 export const createOrderPayload = (args: Args): Codec => {
 

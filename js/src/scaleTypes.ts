@@ -1,13 +1,5 @@
 export const scaleTypes = {
     Address: "MultiAddress",
-    LookupSource: "MultiAddress",
-    AssetId: {
-        _enum: {
-            Asset: "u128",
-            POLKADEX: null,
-        },
-    },
-    CurrencyId: "AssetId",
     ShardIdentifier: "H256",
     Balance: "u128",
     BalanceOf: "Balance",
@@ -24,10 +16,6 @@ export const scaleTypes = {
         timestamp: "i64",
     },
     order_id: "H256",
-    TradingPair: {
-        base_asset: "AssetId",
-        quote_asset: "AssetId",
-    },
     OrderSide: {
         _enum: {
             Ask: null,
