@@ -11,9 +11,6 @@ export const createCancelOrderPayloadSigned = (
     const orderIdCodec = api.createType("order_id", orderId);
     const signature = signPayload(api, userKeyring, orderIdCodec);
     return {
-        orderId: orderIdCodec,
-        account: userKeyring.address,
-        pair: market,
         signature: signature,
     };
 };
