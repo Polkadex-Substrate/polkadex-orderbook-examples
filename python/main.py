@@ -47,6 +47,17 @@ def main():
     print("place order gql payload")
     print(payload)
 
+    #cancel order
+    order_id = "0x638d0490000000004b7cdeca2fe41a1b6411000000158fb5610df6aa553bfedb"
+    cancel_order_request = substrate.create_scale_object('H256').encode(order_id)
+    signature = trader.sign(cancel_order_request)
+    cancelPayloadJson = [order_id, main.ss58_address, trader.ss58_address, market, {"Sr25519": signature.hex()}]
+    cancelPayload = json.dumps(cancelPayloadJson)
+
+    print("cancel order gql payload")
+    print(cancelPayload)
+
+
 
 if __name__ == "__main__":
     main()
