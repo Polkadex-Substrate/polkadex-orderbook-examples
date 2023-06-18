@@ -25,9 +25,9 @@ def main():
             "user": trader.ss58_address,
             "main_account": main.ss58_address,
             "pair": market,
-            "qty": quantity,
-            "price": price,
-            "quote_order_quantity": ZERO,
+            "qty": quantity, #should be zero for market-bid
+            "price": price, 
+            "quote_order_quantity": ZERO, #non zero only for market-bid
             "timestamp": timestamp,
             "client_order_id": client_order_id,
             "order_type": "LIMIT",
