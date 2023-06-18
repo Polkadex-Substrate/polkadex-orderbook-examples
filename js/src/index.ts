@@ -19,8 +19,8 @@ async function main() {
     const trader = keyring.addFromUri("//Alice");
 
     //create a Bid limit order for price 5 and qty 10
-    const price = 5 * UNIT;
-    const quantity = 10 * UNIT;
+    const price = 5;
+    const quantity = 10;
     const clientOrderId = "0xd6c6e89e4b5aad80b63da4b4f87d68bf0affc53521c4f0ec61e897147bc743b3";
     const timestamp = 1687126073
     const orderPayload = createOrderPayload({
@@ -29,7 +29,6 @@ async function main() {
         tradeAddress: trader.address,
         price,
         quantity, // non-zero for all orders types except market-bids
-        quoteOrderQuantity: 0, // non-zero for market-bids
         clientOrderId,
         market,
         side: "Bid",
@@ -37,7 +36,7 @@ async function main() {
         type: "LIMIT"
     })
 
-    //0xd6c6e89e4b5aad80b63da4b4f87d68bf0affc53521c4f0ec61e897147bc743b3d43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d8eaf04151687736326c9fea17e25fc5287613693c912909cb226aa4794f26a4818504445582d31000128302e303030303030303028302e30303030303030302435303030303030303039808f6400000000
+    //0xd6c6e89e4b5aad80b63da4b4f87d68bf0affc53521c4f0ec61e897147bc743b3d43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d8eaf04151687736326c9fea17e25fc5287613693c912909cb226aa4794f26a4818504445582d31010028302e3030303030303030083130043539808f6400000000
     console.log("hex encoding of order:")
     console.log(orderPayload.toHex());
 

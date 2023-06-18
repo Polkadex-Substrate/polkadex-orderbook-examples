@@ -18,7 +18,7 @@ type Args = {
 }
 export const createOrderPayload = (args: Args): Codec => {
 
-    let isMarketBid = args.side === "Bid" && args.type === "LIMIT"
+    let isMarketBid = args.side === "Bid" && args.type === "MARKET"
     let qty = !isMarketBid && args.quantity ? args.quantity.toString() : ZERO;
     let quote_order_quantity = isMarketBid && args.quoteOrderQuantity ? args.quoteOrderQuantity.toString() : ZERO;
 
@@ -26,8 +26,8 @@ export const createOrderPayload = (args: Args): Codec => {
         user: args.tradeAddress,
         main_account: args.mainAddress,
         pair: args.market,
-        side: args.type === "LIMIT" ? ASK : BID,
-        order_type: args.side === "Ask" ? LIMIT : MARKET,
+        side: args.side === "Ask" ? ASK : BID,
+        order_type: args.type === "LIMIT" ? LIMIT : MARKET,
         qty: qty,
         quote_order_quantity: quote_order_quantity,
         price: args.price.toString(),
