@@ -27,8 +27,8 @@ async function main() {
         mainAddress: main.address,
         tradeAddress: trader.address,
         price,
-        quantity,
-        quoteOrderQuantity: 0,
+        quantity, // non-zero for all orders types except market-bids
+        quoteOrderQuantity: 0, // non-zero for market-bids
         clientOrderId: getNewClientId(),
         market,
         side: "Bid",
